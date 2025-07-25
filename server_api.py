@@ -18,7 +18,7 @@ def home():
 db_config = {
     'host': os.getenv('MYSQL_HOST'),  # Accediendo a la variable de entorno
     'user': os.getenv('MYSQL_USER'),
-    'password': os.getenv('MYSQL_PASSWORD'),
+    'password': '',
     'database': os.getenv('MYSQL_DATABASE'),
     'port': int(os.getenv('MYSQL_PORT', 3306))  # Si no se establece, por defecto 3306
 }
