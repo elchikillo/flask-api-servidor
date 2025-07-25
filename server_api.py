@@ -16,11 +16,11 @@ def home():
 
 # Configuración de base de datos en la nube
 db_config = {
-    'host': os.getenv('MYSQL_HOST', 'mysql.railway.app'),  # Usamos el valor de la variable de entorno, con un valor por defecto
-    'user': os.getenv('MYSQL_USER', 'root'),  # Usuario de la base de datos
-    'password': os.getenv('MYSQL_ROOT_PASSWORD', ''),  # Contraseña si se necesita
-    'database': os.getenv('MYSQL_DATABASE', 'railway'),  # Nombre de la base de datos
-    'port': int(os.getenv('MYSQL_PORT', 3306))  # Puerto 3306 por defecto
+    'host': os.getenv('MYSQL_HOST', 'mysql-pqw2.railway.internal'),  # Cambia a la URL interna proporcionada por Railway
+    'user': os.getenv('MYSQL_USER', 'root'),
+    'password': os.getenv('MYSQL_ROOT_PASSWORD'),  # La contraseña que aparece en las variables de entorno
+    'database': os.getenv('MYSQL_DATABASE', 'railway'),  # El nombre de la base de datos
+    'port': int(os.getenv('MYSQL_PORT', 3306))  # Puerto por defecto, si no se define
 }
 
 
