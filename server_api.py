@@ -39,11 +39,17 @@ def subir_imagen():
         conn.close()
         return "Imagen recibida y guardada", 200
 
+    except mysql.connector.Error as err:
+        import traceback
+        print("❌ ERROR en DB:", err)
+        traceback.print_exc()  # Esto imprime el detalle del error en consola/log
+        return f"Error en la base de datos: {err}", 500
+
     except Exception as e:
         import traceback
-        print("❌ ERROR capturado:", e)
+        print("❌ ERROR inesperado:", e)
         traceback.print_exc()
-        return f"Error en el servidor: {e}", 500
+        return f"Error inesperado: {e}", 500
 
 @app.route('/foto')
 def obtener_ultima_imagen():
