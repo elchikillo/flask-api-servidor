@@ -14,11 +14,13 @@ def home():
 
 # Configuración de base de datos en la nube
 db_config = {
-    'host': 'TU_HOST',  # Ejemplo: 'mysql.railway.internal'
-    'user': 'TU_USER',
-    'password': 'TU_PASSWORD',
-    'database': 'imagenes_db'
+    'host': 'mainline.proxy.rlwy.net',
+    'user': 'root',
+    'password': '',
+    'database': 'imagenes_db',
+    'port': 38286
 }
+
 
 @app.route('/subir', methods=['POST'])
 def subir_imagen():
