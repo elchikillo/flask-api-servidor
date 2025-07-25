@@ -39,9 +39,11 @@ def subir_imagen():
         conn.close()
         return "Imagen recibida y guardada", 200
 
-    except mysql.connector.Error as err:
-        print("❌ ERROR en DB:", err)  # <-- Agrega esto para ver el error real en los logs
-        return f"Error en la base de datos: {err}", 500
+    except Exception as e:
+        import traceback
+        print("❌ ERROR capturado:", e)
+        traceback.print_exc()
+        return f"Error en el servidor: {e}", 500
 
 @app.route('/foto')
 def obtener_ultima_imagen():
@@ -66,4 +68,4 @@ def obtener_ultima_imagen():
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
