@@ -36,7 +36,9 @@ def subir_imagen():
         cursor.close()
         conn.close()
         return "Imagen recibida y guardada", 200
+
     except mysql.connector.Error as err:
+        print("❌ ERROR en DB:", err)  # <-- Agrega esto para ver el error real en los logs
         return f"Error en la base de datos: {err}", 500
 
 @app.route('/foto')
