@@ -1,5 +1,7 @@
 # server_api.py
 
+import os
+
 from flask import Flask, request, make_response
 from datetime import datetime
 import mysql.connector
