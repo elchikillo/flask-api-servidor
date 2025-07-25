@@ -6,6 +6,12 @@ import mysql.connector
 
 app = Flask(__name__)
 
+
+@app.route('/')
+def home():
+    return "Servidor Flask en línea"
+
+
 # Configuración de base de datos en la nube
 db_config = {
     'host': 'TU_HOST',  # Ejemplo: 'mysql.railway.internal'
