@@ -14,13 +14,12 @@ def home():
 
 # Configuración de base de datos en la nube
 db_config = {
-    'host': 'mainline.proxy.rlwy.net',
-    'user': 'root',
-    'password': '',
-    'database': 'imagenes_db',
-    'port': 38286
+    'host': os.getenv('MYSQL_HOST'),  # Accediendo a la variable de entorno
+    'user': os.getenv('MYSQL_USER'),
+    'password': os.getenv('MYSQL_PASSWORD'),
+    'database': os.getenv('MYSQL_DATABASE'),
+    'port': int(os.getenv('MYSQL_PORT', 3306))  # Si no se establece, por defecto 3306
 }
-
 
 @app.route('/subir', methods=['POST'])
 def subir_imagen():
