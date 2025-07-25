@@ -16,12 +16,13 @@ def home():
 
 # Configuración de base de datos en la nube
 db_config = {
-    'host': os.getenv('MYSQL_HOST'),  # Accediendo a la variable de entorno
-    'user': os.getenv('MYSQL_USER'),
-    'password': '',
-    'database': os.getenv('MYSQL_DATABASE'),
-    'port': int(os.getenv('MYSQL_PORT', 3306))  # Si no se establece, por defecto 3306
+    'host': os.getenv('MYSQL_HOST', 'mysql.railway.app'),  # Usamos el valor de la variable de entorno, con un valor por defecto
+    'user': os.getenv('MYSQL_USER', 'root'),  # Usuario de la base de datos
+    'password': os.getenv('MYSQL_ROOT_PASSWORD', ''),  # Contraseña si se necesita
+    'database': os.getenv('MYSQL_DATABASE', 'railway'),  # Nombre de la base de datos
+    'port': int(os.getenv('MYSQL_PORT', 3306))  # Puerto 3306 por defecto
 }
+
 
 @app.route('/subir', methods=['POST'])
 def subir_imagen():
